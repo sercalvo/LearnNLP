@@ -1,0 +1,62 @@
+.css-1r6slb0 {
+    border: 1px solid rgb(124 139 139 / 20%);
+    border-radius: 0.80rem;
+    padding: calc(1em - 1px);
+    background-color: #f8f9fa;
+}
+
+.css-fg4pbf.e1tzin5v3 {
+    position: absolute;
+    background: rgb(255, 255, 255);
+    color: rgb(49, 51, 63);
+    inset: 0px;
+    overflow: hidden;
+}
+
+#css-1offfwp {
+    font-family: "Source Sans Pro", sans-serif;
+    margin-bottom: -1rem;
+    border: 1px solid rgb(124 139 139 / 20%);
+    border-radius: 0.8rem;
+    padding: calc(1em - 1px);
+}
+
+/* styles.css */
+
+/* Import Orbitron font */
+/*@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');*/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Walter+Turncoat&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Akronim&family=Orbitron&family=Walter+Turncoat&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Akronim&family=Orbitron&family=Roboto:ital,wght@0,100..900;1,100..900&family=Walter+Turncoat&display=swap');
+
+.walter-turncoat-regular {
+    font-family: "Walter Turncoat", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'Orbitron';
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+  }
+
+.slogan {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.akronim-regular {
+    font-family: "Akronim", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
