@@ -4,6 +4,7 @@ nltk==3.9.1
 pandas==2.2.3
 Pillow==11.1.0
 pyspellchecker==0.8.2
+sentencepiece==0.1.97
 spacy==3.8.4
 st_annotated_text==4.0.2
 streamlit==1.42.2
