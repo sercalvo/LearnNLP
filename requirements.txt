@@ -8,6 +8,6 @@ spellchecker==0.4
 st_annotated_text==4.0.2
 streamlit==1.42.0
 streamlit_extras==0.5.5
-torch==2.6.0
+tensorflow
 transformers==4.48.3
 en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
