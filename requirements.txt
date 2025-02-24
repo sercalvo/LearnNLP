@@ -10,6 +10,7 @@ st_annotated_text==4.0.2
 streamlit==1.42.0
 streamlit_extras==0.5.5
 transformers==4.48.3
+pyspellchecker==0.6.2
 tensorflow
 torch
 torchvision
