@@ -23,7 +23,6 @@ from transformers import pipeline
 import gensim
 from gensim import corpora
 from nltk.wsd import lesk
-from spellchecker import SpellChecker
 import os
 from os import path
 from PIL import Image
