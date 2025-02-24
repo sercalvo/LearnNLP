@@ -30,6 +30,7 @@ from annotated_text import annotated_text
 import streamlit_extras
 import pandas as pd
 from streamlit_extras.buy_me_a_coffee import button
+from spellchecker import SpellChecker
 
 # Set page configuration
 st.set_page_config(
