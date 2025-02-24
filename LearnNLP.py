@@ -31,12 +31,27 @@ import streamlit_extras
 import pandas as pd
 from streamlit_extras.buy_me_a_coffee import button
 from spellchecker import SpellChecker
+import streamlit.components.v1 as components
 
 # --- Set page configuration ---
 st.set_page_config(
     page_title="LocNLP23Lab",
     page_icon="img//V-Logo-icon48.png",
 )
+
+# Google Analytics
+GA_ID = "G-2SV7DZ5WMM"  # Reemplázalo con tu ID de Google Analytics
+GA_SCRIPT = f"""
+    <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){{dataLayer.push(arguments);}}
+        gtag('js', new Date());
+        gtag('config', '{GA_ID}', {{ 'anonymize_ip': true }});
+    </script>
+"""
+
+components.html(GA_SCRIPT, height=0, scrolling=False)
 
 # --- Load custom CSS if available ---
 if os.path.exists("styles.css"):
