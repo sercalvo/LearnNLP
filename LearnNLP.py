@@ -5,17 +5,17 @@ Created on Sun Feb 23 12:59:10 2025
 @author: Sergio Calvo
 """
 
+# --- Monkey-patch langdetect for pyspellchecker ---
 try:
     import langdetect
 except ImportError:
     pass  # langdetect should already be in your requirements
 
-# If _detect_lang isn’t defined, define it using the public detect() function
 if not hasattr(langdetect, "_detect_lang"):
     from langdetect import detect as _detect_lang_impl
     langdetect._detect_lang = _detect_lang_impl
 
-
+# --- Imports ---
 import streamlit as st
 import nltk
 import spacy
@@ -32,21 +32,21 @@ import pandas as pd
 from streamlit_extras.buy_me_a_coffee import button
 from spellchecker import SpellChecker
 
-# Set page configuration
+# --- Set page configuration ---
 st.set_page_config(
     page_title="LocNLP23Lab",
     page_icon="img//V-Logo-icon48.png",
 )
 
-# Load custom CSS if available
+# --- Load custom CSS if available ---
 if os.path.exists("styles.css"):
     with open("styles.css") as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-# Determine working directory
+# --- Determine working directory ---
 d = path.dirname(__file__) if "__file__" in locals() else os.getcwd()
 
-# Updated SVG Logo with fixes
+# --- SVG Logo ---
 svg_logo = """
 <svg width="400" height="110" viewBox="50 50 400 120" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
@@ -78,26 +78,40 @@ with open("logo.svg", "w") as f:
 # Display the SVG logo in the sidebar
 st.sidebar.image("logo.svg", width=150)
 
-# Download necessary NLTK data
+# --- Download necessary NLTK data ---
 nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
 
-# Load spaCy model for English
+# --- Load spaCy model for English ---
 nlp = spacy.load("en_core_web_sm")
 
-# Initialize Hugging Face pipelines
-sentiment_classifier = pipeline("sentiment-analysis")
-translation_pipeline = pipeline("translation_en_to_fr", model="Helsinki-NLP/opus-mt-en-fr")
-summarizer = pipeline("summarization")
-text_generator = pipeline("text-generation", model="gpt2")
-zero_shot_classifier = pipeline(
-    "zero-shot-classification",
-    model="facebook/bart-large-mnli",
-    revision="d7645e1"
-)
+# --- Lazy-loading of Hugging Face Pipelines using caching ---
+@st.cache_resource
+def get_sentiment_classifier():
+    return pipeline("sentiment-analysis")
 
-# Initialize SpellChecker
+@st.cache_resource
+def get_translation_pipeline():
+    return pipeline("translation_en_to_fr", model="Helsinki-NLP/opus-mt-en-fr")
+
+@st.cache_resource
+def get_summarizer():
+    return pipeline("summarization")
+
+@st.cache_resource
+def get_text_generator():
+    return pipeline("text-generation", model="gpt2")
+
+@st.cache_resource
+def get_zero_shot_classifier():
+    return pipeline(
+        "zero-shot-classification",
+        model="facebook/bart-large-mnli",
+        revision="d7645e1"
+    )
+
+# --- Initialize SpellChecker ---
 spell = SpellChecker()
 
 ###############################################################################
@@ -420,7 +434,8 @@ elif choice == "😊 Sentiment Analysis":
     )
     user_text = st.text_area("Enter text for sentiment analysis", "I absolutely love learning NLP!")
     if st.button("Analyze Sentiment"):
-        result = sentiment_classifier(user_text)
+        classifier = get_sentiment_classifier()
+        result = classifier(user_text)
         st.write("**Sentiment Analysis Result:**", result)
     st.subheader("Sample Code")
     st.code(
@@ -582,7 +597,8 @@ elif choice == "🗂️ Text Classification":
     candidate_labels_input = st.text_input("Enter candidate labels (comma-separated)", "positive, negative, neutral")
     if st.button("Classify Text"):
         candidate_labels = [label.strip() for label in candidate_labels_input.split(',')]
-        result = zero_shot_classifier(user_text, candidate_labels=candidate_labels)
+        classifier = get_zero_shot_classifier()
+        result = classifier(user_text, candidate_labels=candidate_labels)
         st.write("**Classification Result:**", result)
     st.subheader("Sample Code")
     st.code(
@@ -645,7 +661,8 @@ elif choice == "✂️ Text Summarization":
     )
     user_text = st.text_area("Enter text to summarize", "Long text goes here. " * 20)
     if st.button("Summarize"):
-        summary = summarizer(user_text, max_length=130, min_length=30, do_sample=False)
+        summarizer_pipeline = get_summarizer()
+        summary = summarizer_pipeline(user_text, max_length=130, min_length=30, do_sample=False)
         st.write("**Summary:**", summary[0]['summary_text'])
     st.subheader("Sample Code")
     st.code(
@@ -673,7 +690,8 @@ elif choice == "🤖 Text Generation":
     )
     user_text = st.text_area("Enter a text prompt for generation", "Once upon a time")
     if st.button("Generate Text"):
-        generated = text_generator(user_text, max_length=50, num_return_sequences=1)
+        generator = get_text_generator()
+        generated = generator(user_text, max_length=50, num_return_sequences=1)
         st.write("**Generated Text:**", generated[0]['generated_text'])
     st.subheader("Sample Code")
     st.code(
@@ -799,7 +817,7 @@ elif choice == "☕​ Buy Me a Coffee":
         """
     )
 
-# Footer
+# --- Footer ---
 st.markdown(
     """<p style='text-align: center;'> Brought to you with <span style='color:red'>❤</span> by <a href='https://www.veriloquium.com/'>Sergio Calvo</a> | Veriloquium © LocNLP Lab23 </p>""",
     unsafe_allow_html=True
