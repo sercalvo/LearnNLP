@@ -54,7 +54,6 @@ GA_SCRIPT = f"""
 """
 
 components.html(GA_SCRIPT, height=0, scrolling=False)
-#st.markdown(GA_SCRIPT, height=0, scrolling=False, , unsafe_allow_html=True)
 
 # --- Load custom CSS if available ---
 if os.path.exists("styles.css"):
