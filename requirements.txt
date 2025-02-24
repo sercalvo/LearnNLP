@@ -10,7 +10,7 @@ streamlit==1.42.2
 streamlit_extras==0.5.5
 transformers==4.49.0
 tensorflow
-torch==2.0.1
+torch==2.2.2
 torchvision
 torchaudio
 tf-keras==2.13.0
