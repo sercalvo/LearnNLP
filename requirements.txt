@@ -1,5 +1,5 @@
 gensim==4.3.3
-langdetect==1.0.9
+langdetect==1.0.8
 nltk==3.9.1
 pandas==2.2.3
 Pillow==11.1.0
