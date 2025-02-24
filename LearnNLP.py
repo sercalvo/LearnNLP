@@ -5,6 +5,17 @@ Created on Sun Feb 23 12:59:10 2025
 @author: Sergio Calvo
 """
 
+try:
+    import langdetect
+except ImportError:
+    pass  # langdetect should already be in your requirements
+
+# If _detect_lang isn’t defined, define it using the public detect() function
+if not hasattr(langdetect, "_detect_lang"):
+    from langdetect import detect as _detect_lang_impl
+    langdetect._detect_lang = _detect_lang_impl
+
+
 import streamlit as st
 import nltk
 import spacy
