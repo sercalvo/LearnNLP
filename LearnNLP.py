@@ -163,7 +163,7 @@ choice = st.sidebar.radio("Go to Section:", sections)
 ###############################################################################
 if choice == "🚀 Introduction":
     st.image("logo.svg")
-    st.title("Learning NLP - Quick Overview")
+    st.title("Learn NLP - Quick Overview")
     st.markdown(
         """
         This interactive guide follows the article that I wrote, [Common NLP Tasks – Quick Learning](https://www.veriloquium.com/learning-nlp-quick-overview-with-sample-codes/), covering a range of fundamental NLP tasks with working sample codes. You will find some kind of magic here from the world of computational linguistics.
