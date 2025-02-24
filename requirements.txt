@@ -4,6 +4,7 @@ pandas==2.2.3
 Pillow==11.1.0
 pyspellchecker==0.8.2
 spacy==3.8.4
+sentencepiece
 spellchecker==0.4
 st_annotated_text==4.0.2
 streamlit==1.42.0
