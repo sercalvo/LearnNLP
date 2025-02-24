@@ -9,4 +9,8 @@ st_annotated_text==4.0.2
 streamlit==1.42.2
 streamlit_extras==0.5.5
 transformers==4.49.0
+tensorflow
+torch
+torchvision
+torchaudio
 en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
