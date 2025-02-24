@@ -2,14 +2,12 @@ gensim==4.3.3
 nltk==3.9.1
 pandas==2.2.3
 Pillow==11.1.0
-pyspellchecker==0.8.2
 spacy==3.8.4
-sentencepiece
 spellchecker==0.4
 st_annotated_text==4.0.2
-streamlit==1.42.0
+streamlit==1.42.2
 streamlit_extras==0.5.5
-transformers==4.48.3
+transformers==4.49.0
 pyspellchecker
 tensorflow
 torch
