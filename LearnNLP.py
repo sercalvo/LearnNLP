@@ -42,14 +42,16 @@ st.set_page_config(
 # Google Analytics
 GA_ID = "G-2SV7DZ5WMM"  # Reemplázalo con tu ID de Google Analytics
 GA_SCRIPT = f"""
-    <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2SV7DZ5WMM"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){{dataLayer.push(arguments);}}
         gtag('js', new Date());
-        gtag('config', '{GA_ID}', {{ 'anonymize_ip': true }});
+        gtag('config', 'G-2SV7DZ5WMM', {{ 'anonymize_ip': true }});
     </script>
 """
+
+
 
 components.html(GA_SCRIPT, height=0, scrolling=False)
 
