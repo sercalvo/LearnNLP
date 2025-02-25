@@ -725,7 +725,7 @@ elif choice == "🤖 Text Generation":
     user_text = st.text_area("Enter a text prompt for generation", "Once upon a time")
     if st.button("Generate Text"):
         generator = get_text_generator()
-        generated = generator(user_text, max_length=50, num_return_sequences=1)
+        generated = generator(user_text, max_length=51, num_return_sequences=1)
         st.write("**Generated Text:**", generated[0]['generated_text'])
     st.subheader("Sample Code")
     st.code(
@@ -734,7 +734,7 @@ from transformers import pipeline
 
 generator = pipeline("text-generation", model="gpt2")
 text = "Once upon a time"
-generated = generator(text, max_length=50, num_return_sequences=1)
+generated = generator(text, max_length=51, num_return_sequences=1)
 print(generated[0]['generated_text'])
         """,
         language="python",
