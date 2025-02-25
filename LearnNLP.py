@@ -99,6 +99,7 @@ st.sidebar.image("logo.svg", width=150)
 nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
+nltk.download('punkt_tab')
 
 # --- Load spaCy model for English ---
 nlp = spacy.load("en_core_web_sm")
