@@ -217,11 +217,27 @@ if choice == "🚀 Introduction":
         """
     )
     with st.popover("About Sergio"):
-        st.write(
+        st.markdown(
             """
-            Translator, Reviewer, Computational Linguist, Terminologist and Localization Engineer with 20+ years of experience in translation, localization, and NLP. Passionate about diving deep into the intricacies of language – whether human or computer – to unveil the beauty of communication.  
-            [www.veriloquium.com](https://www.veriloquium.com)
-            """
+            <div style="text-align: center;">
+            <h3>About the Author</h3>
+            <p>
+            🙋‍♂️ <strong>Sergio Calvo</strong>
+            </p>
+            <p>
+            🌐 Translator, Reviewer, Computational Linguist, Terminologist, and Localization Engineer with 20+ years of experience in translation, localization, and NLP.
+            </p>
+            <p>
+            💬 Passionate about diving deep into the intricacies of language – whether human or computer – to unveil the beauty of communication.
+            </p>
+            <p>
+            <a href="https://www.veriloquium.com" target="_blank">
+            🔗 www.veriloquium.com
+            </a>
+            </p>
+            </div>
+            """,
+            unsafe_allow_html=True
         )
 
 ###############################################################################
