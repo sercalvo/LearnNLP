@@ -135,7 +135,7 @@ spell = SpellChecker()
 ###############################################################################
 # Sidebar Navigation
 ###############################################################################
-st.sidebar.title("NLP Buddy")
+st.sidebar.title("github/LearnNLP/img/NLPBuddy_icon.ico NLP Buddy")
 sections = [
     "🚀 Introduction",
     "⚙️ Environment Setup",
