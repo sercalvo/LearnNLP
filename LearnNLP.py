@@ -135,7 +135,6 @@ spell = SpellChecker()
 ###############################################################################
 # Sidebar Navigation
 ###############################################################################
-st.sidebar.image("img/NLPBuddy_icon.ico", width=150)
 st.sidebar.title("NLP Buddy")
 sections = [
     "🚀 Introduction",
@@ -164,7 +163,7 @@ choice = st.sidebar.radio("Go to Section:", sections)
 # 1. Introduction
 ###############################################################################
 if choice == "🚀 Introduction":
-    st.image("logo.svg")
+    st.image("img/NLPBuddy_icon.ico", width=150)
     st.title("NLP Buddy - Learn NLP")
     st.markdown(
         """
