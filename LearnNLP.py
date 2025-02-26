@@ -36,7 +36,7 @@ import streamlit.components.v1 as components
 # --- Set page configuration ---
 st.set_page_config(
     page_title="NLP Buddy",
-    page_icon="img//NLPBuddy_icon.ico",
+    page_icon="img//V-Logo-icon48.ico",
 )
 
 # Google Analytics
