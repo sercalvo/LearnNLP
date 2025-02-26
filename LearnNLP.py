@@ -35,8 +35,8 @@ import streamlit.components.v1 as components
 
 # --- Set page configuration ---
 st.set_page_config(
-    page_title="LocNLP23Lab",
-    page_icon="img//V-Logo-icon48.png",
+    page_title="NLP Buddy",
+    page_icon="img//NLPBuddy_icon.ico",
 )
 
 # Google Analytics
@@ -135,7 +135,7 @@ spell = SpellChecker()
 ###############################################################################
 # Sidebar Navigation
 ###############################################################################
-st.sidebar.title("NLP Quick Overview")
+st.sidebar.title("NLP Buddy")
 sections = [
     "🚀 Introduction",
     "⚙️ Environment Setup",
@@ -164,7 +164,7 @@ choice = st.sidebar.radio("Go to Section:", sections)
 ###############################################################################
 if choice == "🚀 Introduction":
     st.image("logo.svg")
-    st.title("Learn NLP - Quick Overview")
+    st.title("NLP Buddy - Learn NLP")
     st.markdown(
         """
         This interactive guide follows the article that I wrote, [Common NLP Tasks – Quick Learning](https://www.veriloquium.com/learning-nlp-quick-overview-with-sample-codes/), covering a range of fundamental NLP tasks with working sample codes. You will find some kind of magic here from the world of computational linguistics.
