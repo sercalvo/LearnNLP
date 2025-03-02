@@ -33,10 +33,18 @@ from streamlit_extras.buy_me_a_coffee import button
 from spellchecker import SpellChecker
 import streamlit.components.v1 as components
 
+# Determine the base directory
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the absolute path to the logo.svg file
+logo_path = os.path.join(base_dir, "..", "img", "logo.svg")
+logo_icon_path = os.path.join(base_dir, "..", "img", "V-Logo-icon48.ico")
+style_path = os.path.join(base_dir, "..", "css", "V-Logo-icon48.ico")
+
 # --- Set page configuration ---
 st.set_page_config(
     page_title="NLP Buddy",
-    page_icon="../img/V-Logo-icon48.ico",
+    page_icon=logo_icon_path,
 )
 
 # Google Analytics
@@ -56,8 +64,8 @@ GA_SCRIPT = f"""
 components.html(GA_SCRIPT, height=0, scrolling=False)
 
 # --- Load custom CSS if available ---
-if os.path.exists("../css/styles.css"):
-    with open("../css/styles.css") as f:
+if os.path.exists(style_path):
+    with open(style_path) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # --- Determine working directory ---
@@ -89,11 +97,11 @@ svg_logo = """
 """
 
 # Save the SVG to a file
-with open("../img/logo.svg", "w") as f:
+with open(logo_path, "w") as f:
     f.write(svg_logo)
 
 # Display the SVG logo in the sidebar
-st.sidebar.image("../img/logo.svg", width=150)
+st.sidebar.image(logo_path, width=150)
 
 # --- Download necessary NLTK data ---
 nltk.download('punkt')
@@ -163,7 +171,7 @@ choice = st.sidebar.radio("Go to Section:", sections)
 # 1. Introduction
 ###############################################################################
 if choice == "🚀 Introduction":
-    st.image("../img/NLPBuddy_icon.ico", width=150)
+    st.image("img/NLPBuddy_icon.ico", width=150)
     st.title("NLP Buddy - Learn NLP")
     st.markdown(
         """
