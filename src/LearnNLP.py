@@ -36,7 +36,7 @@ import streamlit.components.v1 as components
 # --- Set page configuration ---
 st.set_page_config(
     page_title="NLP Buddy",
-    page_icon="img//V-Logo-icon48.ico",
+    page_icon="..//img//V-Logo-icon48.ico",
 )
 
 # Google Analytics
@@ -56,8 +56,8 @@ GA_SCRIPT = f"""
 components.html(GA_SCRIPT, height=0, scrolling=False)
 
 # --- Load custom CSS if available ---
-if os.path.exists("styles.css"):
-    with open("styles.css") as f:
+if os.path.exists("..//css//styles.css"):
+    with open("..//css//styles.css") as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # --- Determine working directory ---
@@ -89,11 +89,11 @@ svg_logo = """
 """
 
 # Save the SVG to a file
-with open("logo.svg", "w") as f:
+with open("..//img//logo.svg", "w") as f:
     f.write(svg_logo)
 
 # Display the SVG logo in the sidebar
-st.sidebar.image("logo.svg", width=150)
+st.sidebar.image("..//img//logo.svg", width=150)
 
 # --- Download necessary NLTK data ---
 nltk.download('punkt')
@@ -163,7 +163,7 @@ choice = st.sidebar.radio("Go to Section:", sections)
 # 1. Introduction
 ###############################################################################
 if choice == "🚀 Introduction":
-    st.image("img/NLPBuddy_icon.ico", width=150)
+    st.image("..//img//NLPBuddy_icon.ico", width=150)
     st.title("NLP Buddy - Learn NLP")
     st.markdown(
         """
